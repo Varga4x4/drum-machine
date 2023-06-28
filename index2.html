@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Drum Machine</title>
+</head>
+
+<body>
+    <div id="box">
+        <div id="button-pad">
+            <div id="first-column">
+                <button id="heater-1">Q</button>
+                <button id="heater-4">A</button>
+                <button id="kick-n'-Hat">Z</button>
+            </div>
+
+            <div id="second-column">
+                <button id="heater-2">W</button>
+                <button id="clap">S</button>
+                <button id="kick">X</button>
+            </div>
+
+            <div id="third-column">
+                <button id="heater-3">E</button>
+                <button id="open-HH">D</button>
+                <button id="closed-HH">C</button>
+            </div>
+
+        </div>
+
+        <div id="controller-pad">
+            <label class="switch" id="power-switch-label">
+                <p id="power-switch-content">Power</p>
+                <input type="checkbox" id="power-switch-input">
+            </label>
+
+            <div id="display-wrapper">
+                <p id="display-content"></p>
+            </div>
+
+            <div id="volume-container">
+                <p id="volume-content">Volume</p>
+                <input type="range" id="volume-slider">
+            </div>
+
+            <label class="switch" id="modifier-switch-label">
+                <p id="modifier-switch-content">Modifier</p>
+                <input type="checkbox" id="modifier-switch-input">
+            </label>
+        </div>
+    </div>
+
+    <script src="index2.js"></script>
+    
+</body>
+
+</html>

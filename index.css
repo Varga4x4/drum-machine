@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid red;
+    background-color: gray;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box {
+    /* border: 2px solid blue; */
+    background-color: lightgray;
+    border-radius: 25px;
+    height: 400px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+#button-pad {
+    /* border: 2px solid green; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+}
+
+#first-column {
+    /* border: 2px solid yellow; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#second-column {
+    /* border: 2px solid blueviolet; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#third-column {
+    /* border: 2px solid seagreen; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    height: 30%;
+    width: 90%;
+    border-radius: 15px;
+    font-size: 30px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+#controller-pad {
+    /* border: 2px solid orange; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#power-switch-label {
+    /* border: 2px solid green; */
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+#display-wrapper {
+    /* border: 2px solid red; */
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+#volume-container {
+    /* border: 2px solid red; */
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#modifier-switch-label {
+    /* border: 2px solid blue; */
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    cursor: pointer;
+}
