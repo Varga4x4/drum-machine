@@ -3,7 +3,7 @@
 }
 
 body {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     background-color: gray;
     height: 100vh;
     width: 100%;
@@ -18,9 +18,8 @@ body {
     background-color: lightgray;
     border-radius: 25px;
     height: 400px;
-    width: 60%;
+    width: 50%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -32,10 +31,9 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-
 }
 
-#first-column {
+.column:first-child {
     /* border: 2px solid yellow; */
     height: 100%;
     width: 100%;
@@ -45,7 +43,7 @@ body {
     align-items: center;
 }
 
-#second-column {
+.column:nth-child(2) {
     /* border: 2px solid blueviolet; */
     height: 100%;
     width: 100%;
@@ -55,7 +53,7 @@ body {
     align-items: center;
 }
 
-#third-column {
+.column:last-child {
     /* border: 2px solid seagreen; */
     height: 100%;
     width: 100%;
@@ -103,7 +101,7 @@ p {
 #display-wrapper {
     /* border: 2px solid red; */
     height: 20%;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,6 +129,6 @@ p {
     align-items: center;
 }
 
-input {
+input:not(:disabled) {
     cursor: pointer;
 }
