@@ -1,4 +1,4 @@
-const KEYS = [
+const BUTTONS = [
     {
         key: "Q",
         name: "Heater-1",
@@ -16,7 +16,7 @@ const KEYS = [
     {
         key: "Z",
         name: "Kick-n'-Hat",
-        url: "https://s3.,amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
         modifiedName: "Punchy-Kick",
         modifiedUrl: "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
     },
@@ -58,22 +58,22 @@ const KEYS = [
     {
         key: "C",
         name: "Closed-HH",
-        url: "https://s3.,amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
         modifiedName: "Snare",
         modifiedUrl: "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
     }
 ]
 
 const BUTTON_ELEMENTS = [
-    document.getElementById("button-heater-1"),
-    document.getElementById("button-heater-4"),
-    document.getElementById("button-kick-n'-Hat"),
-    document.getElementById("button-heater-2"),
-    document.getElementById("button-clap"),
-    document.getElementById("button-kick"),
-    document.getElementById("button-heater-3"),
-    document.getElementById("button-open-HH"),
-    document.getElementById("button-closed-HH")
+    document.getElementById("button-q"),
+    document.getElementById("button-a"),
+    document.getElementById("button-z"),
+    document.getElementById("button-w"),
+    document.getElementById("button-s"),
+    document.getElementById("button-x"),
+    document.getElementById("button-e"),
+    document.getElementById("button-d"),
+    document.getElementById("button-c")
 ]
 
 const modifierSwitchInputElement = document.getElementById("modifier-switch-input")
@@ -115,15 +115,15 @@ const main = () => {
 
         const handleKeyDown = (event) => {
             const pressedKey = event.key.toUpperCase()
-            const isCorrectKey = !!KEYS.find(key => key.key === pressedKey)
+            const isCorrectKey = !!BUTTONS.some(key => key.key === pressedKey)
 
             if (isCorrectKey && isPowerOn) {
-                const param1 = {
+                const param = {
                     target: {
                         innerText: pressedKey
                     }
                 }
-                handleButtonOnClick(param1)
+                handleButtonOnClick(param)
             }
         }
 
@@ -137,43 +137,37 @@ const main = () => {
     powerSwitchInputElement.onchange = handlePowerSwitchInputElementOnChange
     powerSwitchInputElement.checked = isPowerOn
 
-    const handleDisplayValue = (param) => {
-        displayContentElement.innerText = param
-    }
+    const handleDisplayValue = param => displayContentElement.innerText = param
 
     // SETTING MODIFIER SWITCH INPUT
-    const handleModifierSwitchInputElementOnChange = (event) => {
-        isModifierOn = event.target.checked
-    }
+    const handleModifierSwitchInputElementOnChange = event => isModifierOn = event.target.checked
 
     modifierSwitchInputElement.onchange = handleModifierSwitchInputElementOnChange
     modifierSwitchInputElement.checked = isModifierOn
     modifierSwitchInputElement.disabled = !isPowerOn
 
-    const handleButtonOnClick = (param1) => {
-        const getParam1Id = param1.target.innerText
-        const findObject = KEYS.find(object => object.key === getParam1Id)
+    const handleButtonOnClick = (param) => {
+        const paramInnerText = param.target.innerText
+        const findObject = BUTTONS.find(object => object.key === paramInnerText)
 
-        let newParam1Id,
+        let newParamId,
             audioOfObject
         if (!isModifierOn) {
-            newParam1Id = findObject.name
+            newParamId = findObject.name
             audioOfObject = findObject.url
         } else {
-            newParam1Id = findObject.modifiedName
+            newParamId = findObject.modifiedName
             audioOfObject = findObject.modifiedUrl
         }
 
         const audio = new Audio(audioOfObject)
         audio.volume = volumeSliderElement.value / 100
         audio.play()
-        handleDisplayValue(newParam1Id)
+        handleDisplayValue(newParamId)
     }
 
     // SETTING VOLUME SLIDER INPUT
-    const handleVolumeSliderElementOnChange = (event) => {
-        volumeLevel = event.target.valueAsNumber
-    }
+    const handleVolumeSliderElementOnChange = event => volumeLevel = event.target.valueAsNumber
 
     volumeSliderElement.min = VOLUME_LEVEL_MIN
     volumeSliderElement.max = VOLUME_LEVEL_MAX
@@ -183,9 +177,9 @@ const main = () => {
 
     const toggleButtonDisabledProperty = (elementId, requiredValue) => {
         const buttonElement = document.getElementById(elementId)
-        const newValue = requiredValue ? requiredValue : !buttonElement.disabled
+        const value = requiredValue ? requiredValue : !buttonElement.disabled
 
-        buttonElement.disabled = newValue
+        buttonElement.disabled = value
     }
 
     BUTTON_ELEMENTS.forEach(elem => {

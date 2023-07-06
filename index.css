@@ -17,7 +17,7 @@ body {
     /* border: 2px solid blue; */
     background-color: lightgray;
     border-radius: 25px;
-    height: 400px;
+    height: 50%;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -69,7 +69,6 @@ button {
     border-radius: 15px;
     font-size: 30px;
     font-family: sans-serif;
-    cursor: pointer;
 }
 
 #controller-pad {
@@ -118,7 +117,6 @@ p {
     align-items: center;
 }
 
-
 #modifier-switch-label {
     /* border: 2px solid blue; */
     height: 25%;
@@ -127,6 +125,10 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.button:not(:disabled) {
+    cursor: pointer
 }
 
 input:not(:disabled) {
